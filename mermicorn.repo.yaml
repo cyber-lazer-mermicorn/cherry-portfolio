@@ -5,7 +5,7 @@ display_name: Cherry Portfolio
 owner: cherry
 lane: identity-governance
 visibility: public
-status: stub
+status: foundation
 
 purpose:
   problem: Public-facing portfolio site showcasing Cherry's work across the Mermicorn Grove constellation.
