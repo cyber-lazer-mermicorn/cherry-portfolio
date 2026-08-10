@@ -1,0 +1,33 @@
+schema_version: "1.0"
+
+id: cherry-portfolio
+display_name: Cherry Portfolio
+owner: cherry
+lane: identity-governance
+visibility: public
+status: stub
+
+purpose:
+  problem: Public-facing portfolio site showcasing Cherry's work across the Mermicorn Grove constellation.
+  audience:
+    - Cherry
+    - collaborators
+    - future employers
+
+shared_services:
+  boot: mermicorn-mega-boot
+  memory: mermicorn-memory
+  token_efficiency: mermicorn-token-saver
+
+privacy:
+  public:
+    - portfolio showcase
+    - project links
+    - contact information
+  private:
+    - internal analytics
+    - visitor tracking
+
+first_proof:
+  artifact: live-portfolio-with-proof-artifacts
+  status: planned
