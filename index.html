@@ -3,313 +3,678 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cherry Barton — AI Developer</title>
+    <title>Cherry Barton — AI Developer & Creative Commerce Operator</title>
+    <meta name="description" content="AI-assisted deal research, creative commerce, and production platforms. Building real solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0f;
-            color: #fff;
-            line-height: 1.6;
+        :root {
+            --bg: #05050a;
+            --bg2: #0a0a12;
+            --card: rgba(15, 15, 25, 0.7);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --text: #f0f0f5;
+            --muted: #6b6b80;
+            --cyan: #00e5ff;
+            --violet: #8b5cf6;
+            --pink: #ec4899;
+            --green: #10b981;
+            --amber: #f59e0b;
+            --gradient: linear-gradient(135deg, #00e5ff, #8b5cf6, #ec4899);
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -2;
+        }
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+        .bg-glow-1 { top: -200px; left: -100px; background: var(--cyan); }
+        .bg-glow-2 { bottom: -200px; right: -100px; background: var(--violet); animation-delay: -10s; }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(5, 5, 10, 0.8);
+            border-bottom: 1px solid var(--card-border);
+            z-index: 100;
+        }
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #1a0a2e 0%, #0a0a1a 50%, #0a1a2e 100%);
+            padding: 120px 20px 80px;
         }
-        .hero-content { max-width: 800px; }
+        .hero-content { max-width: 900px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--cyan);
+            margin-bottom: 32px;
+            backdrop-filter: blur(10px);
+        }
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
         .hero h1 {
-            font-size: 3.5rem;
-            background: linear-gradient(135deg, #00d4ff, #7b2ff7, #ff6b6b);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 span {
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
         }
-        .hero .subtitle {
-            font-size: 1.3rem;
-            color: #888;
-            margin-bottom: 24px;
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
         }
-        .hero .tagline {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 32px;
-        }
-        .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
         .btn {
             padding: 14px 28px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.2s;
+            font-size: 0.95rem;
+            transition: all 0.3s;
         }
         .btn-primary {
-            background: linear-gradient(135deg, #7b2ff7, #00d4ff);
+            background: var(--gradient);
             color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3);
         }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 229, 255, 0.4); }
         .btn-secondary {
-            background: transparent;
-            color: #fff;
-            border: 1px solid #333;
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
         }
-        .btn:hover { transform: scale(1.05); }
-        section {
-            max-width: 1000px;
+        .btn-secondary:hover { border-color: var(--cyan); }
+
+        /* Stats */
+        .stats-section {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 0 20px 80px;
         }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 32px;
-            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .stat-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* Section styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        .section-header {
+            text-align: center;
             margin-bottom: 60px;
         }
-        .stat {
-            text-align: center;
-            padding: 24px;
-            background: #12121a;
-            border-radius: 16px;
-            border: 1px solid #2a2a3a;
-        }
-        .stat .number {
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
-            color: #00d4ff;
+            margin-bottom: 16px;
         }
-        .stat .label {
-            color: #888;
-            font-size: 0.9rem;
+        .section-header p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .projects {
+
+        /* Projects */
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
         }
-        .project {
-            background: #12121a;
-            border: 1px solid #2a2a3a;
-            border-radius: 16px;
-            padding: 24px;
-            transition: border-color 0.2s;
-        }
-        .project:hover { border-color: #7b2ff7; }
-        .project h3 { margin-bottom: 8px; color: #fff; }
-        .project p { color: #888; font-size: 0.95rem; margin-bottom: 12px; }
-        .tech-stack {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .tech-tag {
-            padding: 4px 10px;
-            background: #1a1a2a;
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
             border-radius: 20px;
-            font-size: 0.75rem;
-            color: #7b2ff7;
+            padding: 32px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        .skill-card {
-            background: #12121a;
-            border: 1px solid #2a2a3a;
+        .project-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
+        .project-card:hover::before { opacity: 1; }
+        .project-icon {
+            width: 48px;
+            height: 48px;
             border-radius: 12px;
-            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
-        .skill-card h4 { color: #00d4ff; margin-bottom: 8px; }
-        .skill-card ul { list-style: none; }
-        .skill-card li {
-            padding: 4px 0;
-            color: #aaa;
-            font-size: 0.9rem;
+        .project-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
         }
-        .contact {
-            text-align: center;
-            padding: 60px 20px;
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
         }
-        .contact a {
-            color: #7b2ff7;
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .tag {
+            padding: 6px 12px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--violet);
+        }
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cyan);
             text-decoration: none;
-            margin: 0 16px;
-            font-size: 1.1rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: gap 0.2s;
         }
-        .footer {
+        .project-link:hover { gap: 12px; }
+
+        /* Monetization */
+        .monetization {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 60px;
+            margin: 80px auto;
+            max-width: 1000px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        .monetization::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient);
+            opacity: 0.03;
+        }
+        .monetization h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .monetization p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .pricing-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        .pricing-card.featured {
+            border-color: var(--cyan);
+            position: relative;
+        }
+        .pricing-card.featured::after {
+            content: 'POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 16px;
+            background: var(--gradient);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+        .pricing-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .pricing-card .price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 16px 0;
+        }
+        .pricing-card .price span {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 400;
+        }
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 24px 0;
+        }
+        .pricing-features li {
+            padding: 8px 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .contact-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        .contact-link:hover { border-color: var(--cyan); transform: translateY(-2px); }
+
+        /* Footer */
+        footer {
             text-align: center;
             padding: 40px 20px;
-            color: #444;
-            font-size: 0.9rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--cyan); text-decoration: none; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+            .nav-links { display: none; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .monetization { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Cherry Barton</h1>
-            <p class="subtitle">AI Developer & Full-Stack Engineer</p>
-            <p class="tagline">Building production AI platforms that solve real problems</p>
-            <div class="btn-group">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="https://github.com/cyber-lazer-mermicorn" class="btn btn-secondary" target="_blank">GitHub</a>
-                <a href="#contact" class="btn btn-secondary">Contact</a>
-            </div>
-        </div>
-    </div>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
 
-    <section>
-        <h2>By the Numbers</h2>
-        <div class="stats">
-            <div class="stat">
-                <div class="number">22</div>
-                <div class="label">Python Modules</div>
+    <nav>
+        <div class="logo">CYBER LAZER MERMICORN</div>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>Available for hire</span>
             </div>
-            <div class="stat">
-                <div class="number">5</div>
-                <div class="label">AI Providers</div>
-            </div>
-            <div class="stat">
-                <div class="number">25+</div>
-                <div class="label">API Endpoints</div>
-            </div>
-            <div class="stat">
-                <div class="number">14</div>
-                <div class="label">GitHub Repos</div>
-            </div>
-            <div class="stat">
-                <div class="number">99</div>
-                <div class="label">Quality Score</div>
+            <h1>Building <span>AI-Powered</span> Commerce Platforms</h1>
+            <p>Deal research, creative automation, and production-ready systems. Real code, real results, no empty claims.</p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">View Work</a>
+                <a href="#pricing" class="btn btn-secondary">See Pricing</a>
+                <a href="https://github.com/cyber-lazer-mermicorn" class="btn btn-secondary" target="_blank">GitHub</a>
             </div>
         </div>
     </section>
+
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">9</div>
+                <div class="stat-label">Live Platforms</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15</div>
+                <div class="stat-label">GitHub Repos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">API Endpoints</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+        </div>
+    </div>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>Mermicorn Commerce AI</h3>
-                <p>Multi-vertical AI business platform with 5 industry verticals, multi-provider AI, marketplace integrations, and mobile PWA.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">AI</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Stripe</span>
-                </div>
-            </div>
-            <div class="project">
-                <h3>AI Deal Finder</h3>
-                <p>AI-powered travel deal scoring with multi-provider fallback, freemium model, and real-time deal aggregation.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">Groq</span>
-                    <span class="tech-tag">OpenAI</span>
-                </div>
-            </div>
-            <div class="project">
-                <h3>Numismatic Auction Lab</h3>
-                <p>AI coin identification and valuation with PCGS/NGC integration, vision engine, and auction tracking.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">PCGS API</span>
-                </div>
-            </div>
-            <div class="project">
-                <h3>Auto Matchmaker</h3>
-                <p>Vehicle deal scoring with KBB/Edmunds integration, market analysis, and AI-powered recommendations.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">AI</span>
-                    <span class="tech-tag">KBB API</span>
-                </div>
-            </div>
-            <div class="project">
+        <div class="section-header">
+            <h2>Live Projects</h2>
+            <p>Production-ready platforms deployed on Vercel with custom domains</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon" style="background: rgba(0, 229, 255, 0.1);">✈️</div>
                 <h3>Travel Deal Lab</h3>
-                <p>Multi-source travel deal aggregation with AI scoring, price alerts, and deal tracking.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Skyscanner</span>
-                    <span class="tech-tag">AI</span>
+                <p>AI-powered travel deal scoring with multi-provider fallback, freemium model, and real-time deal aggregation for Honolulu-origin trips.</p>
+                <div class="project-tags">
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">OpenAI</span>
+                    <span class="tag">Groq</span>
                 </div>
+                <a href="https://deals.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
             </div>
-            <div class="project">
+            <div class="project-card">
+                <div class="project-icon" style="background: rgba(139, 92, 246, 0.1);">🛍️</div>
+                <h3>Commerce AI</h3>
+                <p>Multi-vertical AI business platform with 5 industry verticals, multi-provider AI, marketplace integrations, and mobile PWA.</p>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Stripe</span>
+                    <span class="tag">Docker</span>
+                </div>
+                <a href="https://commerce.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
+            </div>
+            <div class="project-card">
+                <div class="project-icon" style="background: rgba(236, 72, 153, 0.1);">👗</div>
                 <h3>Ravewear Studio</h3>
-                <p>AI-powered rave wear marketplace with Shopify/Etsy integration and style recommendations.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Shopify</span>
-                    <span class="tech-tag">AI</span>
+                <p>AI-powered rave wear design platform with Midjourney calibration, tech-pack generation, and drop management system.</p>
+                <div class="project-tags">
+                    <span class="tag">AI Media</span>
+                    <span class="tag">Midjourney</span>
+                    <span class="tag">Design</span>
+                </div>
+                <a href="https://ravewear.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
+            </div>
+            <div class="project-card">
+                <div class="project-icon" style="background: rgba(245, 158, 11, 0.1);">🪙</div>
+                <h3>Numismatic Lab</h3>
+                <p>AI coin identification and valuation with PCGS/NGC integration, vision engine, and auction tracking system.</p>
+                <div class="project-tags">
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">PCGS API</span>
+                    <span class="tag">Commerce</span>
+                </div>
+                <a href="https://coins.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
+            </div>
+            <div class="project-card">
+                <div class="project-icon" style="background: rgba(16, 185, 129, 0.1);">🚗</div>
+                <h3>Auto Matchmaker</h3>
+                <p>Vehicle deal scoring with KBB/Edmunds integration, market analysis, and AI-powered buyer matching.</p>
+                <div class="project-tags">
+                    <span class="tag">AI Scoring</span>
+                    <span class="tag">Market Data</span>
+                    <span class="tag">CRM</span>
+                </div>
+                <a href="https://autos.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
+            </div>
+            <div class="project-card">
+                <div class="project-icon" style="background: rgba(239, 68, 68, 0.1);">🎮</div>
+                <h3>Gaming Labs</h3>
+                <p>Rift analysis, champion guides, casino mechanics review, and gaming community tools.</p>
+                <div class="project-tags">
+                    <span class="tag">Analytics</span>
+                    <span class="tag">Guides</span>
+                    <span class="tag">Community</span>
+                </div>
+                <a href="https://rift.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-header">
+            <h2>Services</h2>
+            <p>AI-powered solutions for real business problems</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon" style="background: rgba(0, 229, 255, 0.1);">🔍</div>
+                <h3>Deal Research</h3>
+                <p>Multi-source deal aggregation with AI scoring, price alerts, and actionable recommendations.</p>
+                <div class="project-tags">
+                    <span class="tag">Travel</span>
+                    <span class="tag">E-commerce</span>
+                    <span class="tag">Automotive</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-icon" style="background: rgba(139, 92, 246, 0.1);">🎨</div>
+                <h3>Creative Automation</h3>
+                <p>AI-generated designs, brand assets, and marketing materials at scale.</p>
+                <div class="project-tags">
+                    <span class="tag">Midjourney</span>
+                    <span class="tag">DALL-E</span>
+                    <span class="tag">Branding</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-icon" style="background: rgba(236, 72, 153, 0.1);">📊</div>
+                <h3>Market Intelligence</h3>
+                <p>Real-time market analysis, competitor tracking, and pricing optimization.</p>
+                <div class="project-tags">
+                    <span class="tag">Analytics</span>
+                    <span class="tag">AI/ML</span>
+                    <span class="tag">Reports</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h4>AI/ML</h4>
-                <ul>
-                    <li>Multi-provider AI integration</li>
-                    <li>Computer Vision</li>
-                    <li>NLP</li>
-                    <li>Prompt Engineering</li>
+    <div class="monetization" id="pricing">
+        <h2>Ready to Scale?</h2>
+        <p>Choose the plan that fits your business needs</p>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <p style="color: var(--muted); font-size: 0.9rem;">For individuals</p>
+                <div class="price">$49<span>/mo</span></div>
+                <ul class="pricing-features">
+                    <li>Deal research (100 searches)</li>
+                    <li>Basic AI scoring</li>
+                    <li>Email support</li>
+                    <li>Community access</li>
                 </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; text-align: center;">Get Started</a>
             </div>
-            <div class="skill-card">
-                <h4>Backend</h4>
-                <ul>
-                    <li>Python</li>
-                    <li>FastAPI</li>
-                    <li>REST APIs</li>
-                    <li>WebSocket</li>
+            <div class="pricing-card featured">
+                <h3>Professional</h3>
+                <p style="color: var(--muted); font-size: 0.9rem;">For businesses</p>
+                <div class="price">$149<span>/mo</span></div>
+                <ul class="pricing-features">
+                    <li>Unlimited deal research</li>
+                    <li>Advanced AI scoring</li>
+                    <li>Priority support</li>
+                    <li>API access</li>
+                    <li>Custom integrations</li>
                 </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Get Started</a>
             </div>
-            <div class="skill-card">
-                <h4>Frontend</h4>
-                <ul>
-                    <li>Mobile PWA</li>
-                    <li>Dashboard Design</li>
-                    <li>Glass Morphism UI</li>
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <p style="color: var(--muted); font-size: 0.9rem;">For teams</p>
+                <div class="price">$499<span>/mo</span></div>
+                <ul class="pricing-features">
+                    <li>Everything in Pro</li>
+                    <li>Dedicated support</li>
+                    <li>Custom development</li>
+                    <li>White-label options</li>
+                    <li>SLA guarantee</li>
                 </ul>
-            </div>
-            <div class="skill-card">
-                <h4>DevOps</h4>
-                <ul>
-                    <li>Docker</li>
-                    <li>GitHub Actions</li>
-                    <li>Railway/Vercel</li>
-                    <li>nginx</li>
-                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; text-align: center;">Contact Us</a>
             </div>
         </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Get in Touch</h2>
-        <p style="color:#888;margin-bottom:24px;">Open to remote AI engineering roles</p>
-        <div>
-            <a href="https://github.com/cyber-lazer-mermicorn" target="_blank">GitHub</a>
-            <a href="mailto:cherry@cyber-lazer-mermicorn.dev">Email</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-        </div>
-    </section>
-
-    <div class="footer">
-        Built with AI — Powered by passion
     </div>
+
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2>Let's Build Together</h2>
+            <p>Open to remote AI engineering roles and freelance projects</p>
+        </div>
+        <div class="contact-links">
+            <a href="mailto:cherry@lazermermicorn.com" class="contact-link">
+                <span>✉️</span>
+                <span>cherry@lazermermicorn.com</span>
+            </a>
+            <a href="https://github.com/cyber-lazer-mermicorn" class="contact-link" target="_blank">
+                <span>💻</span>
+                <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com" class="contact-link" target="_blank">
+                <span>💼</span>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Cherry Barton / Cyber Lazer Mermicorn. All rights reserved.</p>
+        <p style="margin-top: 8px;">Built with <a href="https://vercel.com">Vercel</a> • Powered by AI</p>
+    </footer>
 </body>
 </html>
