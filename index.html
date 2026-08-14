@@ -1,733 +1,940 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta property="og:title" content="Cherry Barton - AI Developer & Creative Commerce Operator | lazermermicorn.com">
-    <meta property="og:description" content="Cherry Barton - AI Developer & Creative Commerce Operator | lazermermicorn.com">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lazermermicorn.com">
-    <meta property="og:image" content="https://lazermermicorn.com/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cherry Barton - AI Developer & Creative Commerce Operator | lazermermicorn.com">
-    <meta name="twitter:description" content="Cherry Barton - AI Developer & Creative Commerce Operator | lazermermicorn.com">
-    <meta name="theme-color" content="#050508">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cherry Barton — AI Developer & Creative Commerce Operator</title>
-    <meta name="description" content="AI-assisted deal research, creative commerce, and production platforms. Building real solutions.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #05050a;
-            --bg2: #0a0a12;
-            --card: rgba(15, 15, 25, 0.7);
-            --card-border: rgba(255, 255, 255, 0.06);
-            --text: #f0f0f5;
-            --muted: #6b6b80;
-            --cyan: #00e5ff;
-            --violet: #8b5cf6;
-            --pink: #ec4899;
-            --green: #10b981;
-            --amber: #f59e0b;
-            --gradient: linear-gradient(135deg, #00e5ff, #8b5cf6, #ec4899);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cherry Barton — Cyber Lazer Mermicorn | AI Commerce Constellation</title>
+  <meta name="description" content="Cherry Barton builds AI-assisted commerce, travel deals, ravewear design, and production platforms across the Mermicorn Grove. Live products on lazermermicorn.com." />
+  <meta name="theme-color" content="#03050a" />
+  <link rel="canonical" href="https://lazermermicorn.com/" />
 
-        /* Animated background */
-        .bg-grid {
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: -2;
-        }
-        .bg-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.15;
-            z-index: -1;
-            animation: float 20s ease-in-out infinite;
-        }
-        .bg-glow-1 { top: -200px; left: -100px; background: var(--cyan); }
-        .bg-glow-2 { bottom: -200px; right: -100px; background: var(--violet); animation-delay: -10s; }
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(50px, 50px); }
-        }
+  <meta property="og:title" content="Cherry Barton — Cyber Lazer Mermicorn" />
+  <meta property="og:description" content="AI commerce constellation. Live verticals for travel, ravewear, autos, coins, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lazermermicorn.com" />
+  <meta property="og:image" content="https://lazermermicorn.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cherry Barton — Cyber Lazer Mermicorn" />
+  <meta name="twitter:description" content="AI commerce constellation with live product domains." />
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(20px);
-            background: rgba(5, 5, 10, 0.8);
-            border-bottom: 1px solid var(--card-border);
-            z-index: 100;
-        }
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links { display: flex; gap: 32px; }
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--text); }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
 
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 20px 80px;
-        }
-        .hero-content { max-width: 900px; }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            color: var(--cyan);
-            margin-bottom: 32px;
-            backdrop-filter: blur(10px);
-        }
-        .hero-badge::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--green);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-        .hero h1 span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .btn {
-            padding: 14px 28px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-        .btn-primary {
-            background: var(--gradient);
-            color: #fff;
-            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3);
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 229, 255, 0.4); }
-        .btn-secondary {
-            background: var(--card);
-            color: var(--text);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(10px);
-        }
-        .btn-secondary:hover { border-color: var(--cyan); }
+  <style>
+    :root {
+      --void: #03050a;
+      --ink: #0a0e17;
+      --glass: rgba(12, 18, 32, 0.55);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text: #f4f6fb;
+      --muted: #8b93a7;
+      --cyan: #5ce1ff;
+      --violet: #a78bfa;
+      --rose: #fb7185;
+      --lime: #a3e635;
+      --amber: #fbbf24;
+      --grad: linear-gradient(135deg, #5ce1ff 0%, #a78bfa 45%, #fb7185 100%);
+      --pad: clamp(1rem, 4vw, 2.5rem);
+      --max: 1120px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-        /* Stats */
-        .stats-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        .stat-card {
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 32px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: border-color 0.3s, transform 0.3s;
-        }
-        .stat-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .stat-label {
-            color: var(--muted);
-            font-size: 0.9rem;
-            margin-top: 8px;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--void);
+      color: var(--text);
+      line-height: 1.55;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
 
-        /* Section styles */
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .section-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        .section-header p {
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    /* ——— Ambient field ——— */
+    .field {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(92, 225, 255, 0.12), transparent),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(167, 139, 250, 0.1), transparent),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(251, 113, 133, 0.08), transparent),
+        var(--void);
+    }
+    .grid-fade {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+      pointer-events: none;
+    }
 
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 24px;
-        }
-        .project-card {
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 32px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .project-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
-        .project-card:hover::before { opacity: 1; }
-        .project-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        .project-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .project-card p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        .project-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        .tag {
-            padding: 6px 12px;
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--violet);
-        }
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--cyan);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: gap 0.2s;
-        }
-        .project-link:hover { gap: 12px; }
+    /* ——— Nav ——— */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem var(--pad);
+      background: rgba(3, 5, 10, 0.65);
+      backdrop-filter: blur(18px) saturate(1.2);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s var(--ease), background 0.3s;
+    }
+    .nav.scrolled { border-bottom-color: var(--glass-border); background: rgba(3, 5, 10, 0.85); }
+    .nav-brand {
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text); }
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--grad);
+      color: #041018 !important;
+      -webkit-text-fill-color: #041018;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--glass-border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 0.4rem 0.6rem;
+      cursor: pointer;
+    }
 
-        /* Monetization */
-        .monetization {
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 60px;
-            margin: 80px auto;
-            max-width: 1000px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-        .monetization::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient);
-            opacity: 0.03;
-        }
-        .monetization h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 16px;
-        }
-        .monetization p {
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-        }
-        .pricing-card {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 32px;
-        }
-        .pricing-card.featured {
-            border-color: var(--cyan);
-            position: relative;
-        }
-        .pricing-card.featured::after {
-            content: 'POPULAR';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 4px 16px;
-            background: var(--gradient);
-            border-radius: 100px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-        }
-        .pricing-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-        .pricing-card .price {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 16px 0;
-        }
-        .pricing-card .price span {
-            font-size: 1rem;
-            color: var(--muted);
-            font-weight: 400;
-        }
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin: 24px 0;
-        }
-        .pricing-features li {
-            padding: 8px 0;
-            color: var(--muted);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .pricing-features li::before {
-            content: '✓';
-            color: var(--green);
-            font-weight: 700;
-        }
+    /* ——— Hero (full viewport cinematic) ——— */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 6rem var(--pad) 4rem;
+      overflow: hidden;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+      transition: transform 1.2s var(--ease);
+      filter: brightness(0.45) saturate(1.15);
+    }
+    .hero.is-focused .hero-photo img { transform: scale(1); }
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(3,5,10,0.55) 0%, rgba(3,5,10,0.35) 40%, rgba(3,5,10,0.92) 100%);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      text-align: center;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--glass-border);
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      font-size: 0.78rem;
+      color: var(--cyan);
+      margin-bottom: 1.5rem;
+    }
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 10px var(--lime);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    .hero h1 {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.4rem, 7vw, 4.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.1rem;
+    }
+    .hero h1 em {
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-weight: 400;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: rgba(244, 246, 251, 0.78);
+      max-width: 36rem;
+      margin: 0 auto 2rem;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.85rem 1.35rem;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s, border-color 0.25s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-solid {
+      background: var(--grad);
+      color: #041018;
+      box-shadow: 0 8px 32px rgba(92, 225, 255, 0.25);
+    }
+    .btn-ghost {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+    }
+    .btn-ghost:hover { border-color: rgba(92, 225, 255, 0.45); }
+    .scroll-cue {
+      position: absolute;
+      bottom: 1.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scroll-cue span {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--cyan), transparent);
+      animation: drip 1.8s ease-in-out infinite;
+    }
+    @keyframes drip {
+      0% { transform: scaleY(0.3); opacity: 0; }
+      40% { opacity: 1; }
+      100% { transform: scaleY(1); opacity: 0; }
+    }
 
-        /* Contact */
-        .contact-section {
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .contact-links {
-            display: flex;
-            gap: 24px;
-            justify-content: center;
-            margin-top: 32px;
-        }
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 24px;
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            color: var(--text);
-            text-decoration: none;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-        }
-        .contact-link:hover { border-color: var(--cyan); transform: translateY(-2px); }
+    /* ——— Reveal system ——— */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--card-border);
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-        footer a { color: var(--cyan); text-decoration: none; }
+    /* ——— Sections ——— */
+    section {
+      position: relative;
+      padding: clamp(4rem, 10vw, 7rem) var(--pad);
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+    .section-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .section-title {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .section-sub {
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 2.5rem;
+    }
 
-        /* Mobile */
-        @media (max-width: 768px) {
-            nav { padding: 16px 20px; }
-            .nav-links { display: none; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .projects-grid { grid-template-columns: 1fr; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .monetization { padding: 40px 20px; }
-        }
-    </style>
+    /* ——— Stats strip ——— */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: -2rem;
+      position: relative;
+      z-index: 5;
+    }
+    .stat-lilypad {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(16px);
+      border-radius: 22px;
+      padding: 1.35rem 1.1rem;
+      text-align: center;
+      transition: transform 0.3s var(--ease), border-color 0.3s;
+    }
+    .stat-lilypad:hover {
+      transform: translateY(-4px);
+      border-color: rgba(92, 225, 255, 0.35);
+    }
+    .stat-num {
+      font-family: "Syne", sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+    /* ——— Full-bleed inspirational band ——— */
+    .photo-band {
+      position: relative;
+      min-height: min(70vh, 560px);
+      display: grid;
+      place-items: end start;
+      padding: var(--pad);
+      overflow: hidden;
+    }
+    .photo-band img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5) saturate(1.1);
+      transform: scale(1.06);
+      transition: transform 1.4s var(--ease);
+    }
+    .photo-band.is-focused img { transform: scale(1); }
+    .photo-band::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(3,5,10,0.85) 0%, rgba(3,5,10,0.35) 55%, transparent 100%);
+    }
+    .photo-band-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 28rem;
+      padding: 1.5rem;
+      border-radius: 20px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(14px);
+    }
+    .photo-band-copy h2 {
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .photo-band-copy p { color: rgba(244,246,251,0.8); font-size: 0.95rem; }
+
+    /* ——— Lilypad constellation ——— */
+    .pad-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+    .lilypad {
+      grid-column: span 4;
+      position: relative;
+      border-radius: 24px;
+      border: 1px solid var(--glass-border);
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      padding: 1.5rem;
+      overflow: hidden;
+      transition: transform 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+    }
+    .lilypad::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, var(--pad-glow, rgba(92,225,255,0.12)), transparent 55%);
+      pointer-events: none;
+    }
+    .lilypad:hover {
+      transform: translateY(-6px) scale(1.01);
+      border-color: rgba(255,255,255,0.22);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+    .lilypad.wide { grid-column: span 6; }
+    .lilypad.featured {
+      grid-column: span 8;
+      min-height: 280px;
+      background:
+        linear-gradient(135deg, rgba(12,18,32,0.7), rgba(12,18,32,0.4)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80") center/cover;
+    }
+    .lilypad.featured::before {
+      background: linear-gradient(180deg, rgba(3,5,10,0.2), rgba(3,5,10,0.85));
+    }
+    .pad-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--glass-border);
+    }
+    .lilypad h3 {
+      font-family: "Syne", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+      position: relative;
+    }
+    .lilypad p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex: 1;
+      position: relative;
+    }
+    .pad-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 1rem 0 0.9rem;
+      position: relative;
+    }
+    .chip {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      color: var(--violet);
+      background: rgba(167, 139, 250, 0.08);
+    }
+    .pad-link {
+      position: relative;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--cyan);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s;
+    }
+    .lilypad:hover .pad-link { gap: 0.6rem; }
+
+    /* ——— Proof lane ——— */
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .proof-card {
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      background: var(--glass);
+      padding: 1.4rem;
+      backdrop-filter: blur(12px);
+    }
+    .proof-card strong {
+      display: block;
+      font-family: "Syne", sans-serif;
+      margin-bottom: 0.4rem;
+    }
+    .proof-card p { color: var(--muted); font-size: 0.88rem; }
+
+    /* ——— Hire ——— */
+    .hire-panel {
+      border-radius: 28px;
+      border: 1px solid var(--glass-border);
+      background:
+        radial-gradient(ellipse at top right, rgba(92,225,255,0.12), transparent 50%),
+        var(--glass);
+      backdrop-filter: blur(18px);
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+    .hire-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+    .hire-card {
+      border-radius: 18px;
+      border: 1px solid var(--glass-border);
+      background: rgba(0,0,0,0.25);
+      padding: 1.25rem;
+    }
+    .hire-card h3 { font-family: "Syne", sans-serif; margin-bottom: 0.35rem; }
+    .hire-card .rate {
+      font-family: "Instrument Serif", serif;
+      font-size: 1.6rem;
+      margin: 0.6rem 0;
+    }
+    .hire-card ul {
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .hire-card li { padding: 0.25rem 0; }
+    .hire-card li::before { content: "→ "; color: var(--cyan); }
+
+    /* ——— Contact ——— */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.2rem;
+      border-radius: 14px;
+      border: 1px solid var(--glass-border);
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-pill:hover {
+      border-color: rgba(92,225,255,0.4);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 2rem var(--pad);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--cyan); }
+
+    /* ——— Responsive ——— */
+    @media (max-width: 900px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .lilypad, .lilypad.wide, .lilypad.featured { grid-column: span 12; }
+      .proof-row, .hire-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1rem var(--pad) 1.25rem;
+        background: rgba(3,5,10,0.95);
+        border-bottom: 1px solid var(--glass-border);
+      }
+      .nav-toggle { display: block; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero-photo img, .photo-band img { transform: none !important; transition: none; }
+      .pill-dot, .scroll-cue span { animation: none; }
+    }
+  </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
+  <div class="field" aria-hidden="true"></div>
+  <div class="grid-fade" aria-hidden="true"></div>
 
-    <nav>
-        <div class="logo">CYBER LAZER MERMICORN</div>
-        <div class="nav-links">
-            <a href="#projects">Projects</a>
-            <a href="#services">Services</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#hire">Hire Me</a>
-            <a href="#contact">Contact</a>
-        </div>
+  <header class="nav" id="nav">
+    <a class="nav-brand" href="#top">CYBER LAZER MERMICORN</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">Menu</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#constellation">Constellation</a>
+      <a href="#proof">Proof</a>
+      <a href="#hire">Hire</a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </nav>
+  </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span>Available for hire</span>
-            </div>
-            <h1>Building <span>AI-Powered</span> Commerce Platforms</h1>
-            <p>Deal research, creative automation, and production-ready systems. Real code, real results, no empty claims.</p>
-            <div class="btn-group">
-                <a href="#projects" class="btn btn-primary">View Work</a>
-                <a href="#pricing" class="btn btn-secondary">See Pricing</a>
-                <a href="https://github.com/cyber-lazer-mermicorn" class="btn btn-secondary" target="_blank">GitHub</a>
-            </div>
+  <main id="top">
+    <!-- Cinematic hero -->
+    <section class="hero is-focused" id="hero" data-focus>
+      <div class="hero-photo" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=80"
+          alt=""
+          width="2000"
+          height="1200"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="hero-inner">
+        <div class="pill"><span class="pill-dot" aria-hidden="true"></span> Building in public · Honolulu origin</div>
+        <h1>Commerce systems with <em>constellation clarity</em></h1>
+        <p class="hero-lead">
+          Cherry Barton ships AI-assisted verticals for travel, design, autos, collectibles, and booking —
+          live domains, real code, no empty theater.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-solid" href="#constellation">Explore the Grove</a>
+          <a class="btn btn-ghost" href="https://github.com/cyber-lazer-mermicorn" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost" href="#hire">Hire Cherry</a>
         </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">Scroll <span></span></div>
     </section>
 
-    <div class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">9</div>
-                <div class="stat-label">Live Platforms</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">15</div>
-                <div class="stat-label">GitHub Repos</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">API Endpoints</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">99%</div>
-                <div class="stat-label">Uptime</div>
-            </div>
+    <!-- Stats lilypads -->
+    <div class="wrap" style="padding: 0 var(--pad) 2rem;">
+      <div class="stats">
+        <div class="stat-lilypad reveal">
+          <div class="stat-num">10</div>
+          <div class="stat-label">Vercel projects</div>
         </div>
+        <div class="stat-lilypad reveal reveal-delay-1">
+          <div class="stat-num">9</div>
+          <div class="stat-label">Live product domains</div>
+        </div>
+        <div class="stat-lilypad reveal reveal-delay-2">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Public repos</div>
+        </div>
+        <div class="stat-lilypad reveal reveal-delay-3">
+          <div class="stat-num">1</div>
+          <div class="stat-label">Operator mindset</div>
+        </div>
+      </div>
     </div>
 
-    <section id="projects">
-        <div class="section-header">
-            <h2>Live Projects</h2>
-            <p>Production-ready platforms deployed on Vercel with custom domains</p>
-        </div>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-icon" style="background: rgba(0, 229, 255, 0.1);">✈️</div>
-                <h3>Travel Deal Lab</h3>
-                <p>AI-powered travel deal scoring with multi-provider fallback, freemium model, and real-time deal aggregation for Honolulu-origin trips.</p>
-                <div class="project-tags">
-                    <span class="tag">FastAPI</span>
-                    <span class="tag">OpenAI</span>
-                    <span class="tag">Groq</span>
-                </div>
-                <a href="https://deals.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
-            </div>
-            <div class="project-card">
-                <div class="project-icon" style="background: rgba(139, 92, 246, 0.1);">🛍️</div>
-                <h3>Commerce AI</h3>
-                <p>Multi-vertical AI business platform with 5 industry verticals, multi-provider AI, marketplace integrations, and mobile PWA.</p>
-                <div class="project-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Stripe</span>
-                    <span class="tag">Docker</span>
-                </div>
-                <a href="https://commerce.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
-            </div>
-            <div class="project-card">
-                <div class="project-icon" style="background: rgba(236, 72, 153, 0.1);">👗</div>
-                <h3>Ravewear Studio</h3>
-                <p>AI-powered rave wear design platform with Midjourney calibration, tech-pack generation, and drop management system.</p>
-                <div class="project-tags">
-                    <span class="tag">AI Media</span>
-                    <span class="tag">Midjourney</span>
-                    <span class="tag">Design</span>
-                </div>
-                <a href="https://ravewear.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
-            </div>
-            <div class="project-card">
-                <div class="project-icon" style="background: rgba(245, 158, 11, 0.1);">🪙</div>
-                <h3>Numismatic Lab</h3>
-                <p>AI coin identification and valuation with PCGS/NGC integration, vision engine, and auction tracking system.</p>
-                <div class="project-tags">
-                    <span class="tag">Computer Vision</span>
-                    <span class="tag">PCGS API</span>
-                    <span class="tag">Commerce</span>
-                </div>
-                <a href="https://coins.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
-            </div>
-            <div class="project-card">
-                <div class="project-icon" style="background: rgba(16, 185, 129, 0.1);">🚗</div>
-                <h3>Auto Matchmaker</h3>
-                <p>Vehicle deal scoring with KBB/Edmunds integration, market analysis, and AI-powered buyer matching.</p>
-                <div class="project-tags">
-                    <span class="tag">AI Scoring</span>
-                    <span class="tag">Market Data</span>
-                    <span class="tag">CRM</span>
-                </div>
-                <a href="https://autos.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
-            </div>
-            <div class="project-card">
-                <div class="project-icon" style="background: rgba(239, 68, 68, 0.1);">🎮</div>
-                <h3>Gaming Labs</h3>
-                <p>Rift analysis, champion guides, casino mechanics review, and gaming community tools.</p>
-                <div class="project-tags">
-                    <span class="tag">Analytics</span>
-                    <span class="tag">Guides</span>
-                    <span class="tag">Community</span>
-                </div>
-                <a href="https://rift.lazermermicorn.com" class="project-link" target="_blank">View Live →</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="section-header">
-            <h2>Services</h2>
-            <p>AI-powered solutions for real business problems</p>
-        </div>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-icon" style="background: rgba(0, 229, 255, 0.1);">🔍</div>
-                <h3>Deal Research</h3>
-                <p>Multi-source deal aggregation with AI scoring, price alerts, and actionable recommendations.</p>
-                <div class="project-tags">
-                    <span class="tag">Travel</span>
-                    <span class="tag">E-commerce</span>
-                    <span class="tag">Automotive</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-icon" style="background: rgba(139, 92, 246, 0.1);">🎨</div>
-                <h3>Creative Automation</h3>
-                <p>AI-generated designs, brand assets, and marketing materials at scale.</p>
-                <div class="project-tags">
-                    <span class="tag">Midjourney</span>
-                    <span class="tag">DALL-E</span>
-                    <span class="tag">Branding</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-icon" style="background: rgba(236, 72, 153, 0.1);">📊</div>
-                <h3>Market Intelligence</h3>
-                <p>Real-time market analysis, competitor tracking, and pricing optimization.</p>
-                <div class="project-tags">
-                    <span class="tag">Analytics</span>
-                    <span class="tag">AI/ML</span>
-                    <span class="tag">Reports</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="monetization" id="pricing">
-        <h2>Ready to Scale?</h2>
-        <p>Choose the plan that fits your business needs</p>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3>Starter</h3>
-                <p style="color: var(--muted); font-size: 0.9rem;">For individuals</p>
-                <div class="price">$49<span>/mo</span></div>
-                <ul class="pricing-features">
-                    <li>Deal research (100 searches)</li>
-                    <li>Basic AI scoring</li>
-                    <li>Email support</li>
-                    <li>Community access</li>
-                </ul>
-                <a href="#contact" class="btn btn-secondary" style="width: 100%; text-align: center;">Get Started</a>
-            </div>
-            <div class="pricing-card featured">
-                <h3>Professional</h3>
-                <p style="color: var(--muted); font-size: 0.9rem;">For businesses</p>
-                <div class="price">$149<span>/mo</span></div>
-                <ul class="pricing-features">
-                    <li>Unlimited deal research</li>
-                    <li>Advanced AI scoring</li>
-                    <li>Priority support</li>
-                    <li>API access</li>
-                    <li>Custom integrations</li>
-                </ul>
-                <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Get Started</a>
-            </div>
-            <div class="pricing-card">
-                <h3>Enterprise</h3>
-                <p style="color: var(--muted); font-size: 0.9rem;">For teams</p>
-                <div class="price">$499<span>/mo</span></div>
-                <ul class="pricing-features">
-                    <li>Everything in Pro</li>
-                    <li>Dedicated support</li>
-                    <li>Custom development</li>
-                    <li>White-label options</li>
-                    <li>SLA guarantee</li>
-                </ul>
-                <a href="#contact" class="btn btn-secondary" style="width: 100%; text-align: center;">Contact Us</a>
-            </div>
-        </div>
+    <!-- Inspirational band -->
+    <div class="photo-band" data-focus>
+      <img
+        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80"
+        alt=""
+        loading="lazy"
+        width="1800"
+        height="1000"
+      />
+      <div class="photo-band-copy reveal">
+        <h2>From Honolulu to the edge.</h2>
+        <p>Deal hunting, creative drops, and booking engines — designed as one Grove, not scattered demos.</p>
+      </div>
     </div>
 
-    <section id="hire" class="monetization" style="background: linear-gradient(135deg, rgba(0, 229, 255, 0.05), rgba(139, 92, 246, 0.05));">
-        <h2>Hire Me</h2>
-        <p>9 production AI platforms. Real code, real results, no empty claims.</p>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3>AI Solutions Engineer</h3>
-                <p style="color: var(--muted); font-size: 0.9rem;">Full-time / Contract</p>
-                <div class="price">$150k+<span>/yr</span></div>
-                <ul class="pricing-features">
-                    <li>Multi-provider AI integration</li>
-                    <li>Production platform deployment</li>
-                    <li>Commerce & SaaS systems</li>
-                    <li>Full-stack development</li>
-                </ul>
-                <a href="mailto:cherry@lazermermicorn.com?subject=AI Solutions Engineer Position" class="btn btn-primary" style="width: 100%; text-align: center;">Contact Me</a>
-            </div>
-            <div class="pricing-card featured">
-                <h3>Developer Advocate</h3>
-                <p style="color: var(--muted); font-size: 0.9rem;">Remote</p>
-                <div class="price">$130k+<span>/yr</span></div>
-                <ul class="pricing-features">
-                    <li>Technical content creation</li>
-                    <li>Community engagement</li>
-                    <li>Product demonstrations</li>
-                    <li>API documentation</li>
-                </ul>
-                <a href="mailto:cherry@lazermermicorn.com?subject=Developer Advocate Position" class="btn btn-primary" style="width: 100%; text-align: center;">Contact Me</a>
-            </div>
-            <div class="pricing-card">
-                <h3>Freelance Projects</h3>
-                <p style="color: var(--muted); font-size: 0.9rem;">Project-based</p>
-                <div class="price">$150+<span>/hr</span></div>
-                <ul class="pricing-features">
-                    <li>AI platform development</li>
-                    <li>Deal research systems</li>
-                    <li>Creative automation</li>
-                    <li>Consulting & architecture</li>
-                </ul>
-                <a href="mailto:cherry@lazermermicorn.com?subject=Freelance Project Inquiry" class="btn btn-secondary" style="width: 100%; text-align: center;">Contact Me</a>
-            </div>
+    <!-- Constellation lilypads -->
+    <section id="constellation">
+      <div class="wrap">
+        <p class="section-kicker reveal">Mermicorn Grove</p>
+        <h2 class="section-title reveal">Lilypad constellation</h2>
+        <p class="section-sub reveal">Each pad is a live product surface. Hover to lift. Click to enter.</p>
+
+        <div class="pad-grid">
+          <a class="lilypad featured reveal" href="https://deals.lazermermicorn.com" target="_blank" rel="noopener" style="--pad-glow: rgba(92,225,255,0.2)">
+            <div class="pad-icon">✈</div>
+            <h3>Travel Deal Lab</h3>
+            <p>Honolulu-origin deal scoring, itinerary packaging, and total-cost thinking — not just cheapest fares.</p>
+            <div class="pad-meta"><span class="chip">FastAPI</span><span class="chip">AI scoring</span></div>
+            <span class="pad-link">deals.lazermermicorn.com →</span>
+          </a>
+
+          <a class="lilypad wide reveal reveal-delay-1" href="https://ravewear.lazermermicorn.com" target="_blank" rel="noopener" style="--pad-glow: rgba(251,113,133,0.18)">
+            <div class="pad-icon">✦</div>
+            <h3>Ravewear Studio</h3>
+            <p>Drop 001 creative direction, AI mockups, and production hand-off for the passion brand.</p>
+            <div class="pad-meta"><span class="chip">Design</span><span class="chip">AI media</span></div>
+            <span class="pad-link">ravewear.lazermermicorn.com →</span>
+          </a>
+
+          <a class="lilypad reveal" href="https://commerce.lazermermicorn.com" target="_blank" rel="noopener" style="--pad-glow: rgba(167,139,250,0.18)">
+            <div class="pad-icon">◈</div>
+            <h3>Commerce AI</h3>
+            <p>Product records, pricing, listings, leads, and multichannel packages across verticals.</p>
+            <div class="pad-meta"><span class="chip">Stripe-ready</span><span class="chip">Packages</span></div>
+            <span class="pad-link">commerce.lazermermicorn.com →</span>
+          </a>
+
+          <a class="lilypad reveal reveal-delay-1" href="https://autos.lazermermicorn.com" target="_blank" rel="noopener">
+            <div class="pad-icon">▣</div>
+            <h3>Auto Matchmaker</h3>
+            <p>Vehicle intake, comps, buyer personas, and sales-packet generation.</p>
+            <div class="pad-meta"><span class="chip">Comps</span><span class="chip">Packets</span></div>
+            <span class="pad-link">autos.lazermermicorn.com →</span>
+          </a>
+
+          <a class="lilypad reveal reveal-delay-2" href="https://coins.lazermermicorn.com" target="_blank" rel="noopener">
+            <div class="pad-icon">◎</div>
+            <h3>Numismatic Lab</h3>
+            <p>Evidence-heavy coin workflow — attribution, comps, uncertainty flags, listing strategy.</p>
+            <div class="pad-meta"><span class="chip">Provenance</span><span class="chip">Auction</span></div>
+            <span class="pad-link">coins.lazermermicorn.com →</span>
+          </a>
+
+          <a class="lilypad reveal" href="https://rift.lazermermicorn.com" target="_blank" rel="noopener">
+            <div class="pad-icon">⚔</div>
+            <h3>Rift Lab</h3>
+            <p>Wild Rift strategy and build guidance with portfolio-ready presentation.</p>
+            <div class="pad-meta"><span class="chip">Guides</span><span class="chip">Builds</span></div>
+            <span class="pad-link">rift.lazermermicorn.com →</span>
+          </a>
+
+          <a class="lilypad reveal reveal-delay-1" href="https://games.lazermermicorn.com" target="_blank" rel="noopener">
+            <div class="pad-icon">◇</div>
+            <h3>Chance Game Lab</h3>
+            <p>Responsible chance-game UX and probability education — clarity over deception.</p>
+            <div class="pad-meta"><span class="chip">Education</span><span class="chip">UX</span></div>
+            <span class="pad-link">games.lazermermicorn.com →</span>
+          </a>
+
+          <a class="lilypad reveal reveal-delay-2" href="https://learn.lazermermicorn.com" target="_blank" rel="noopener">
+            <div class="pad-icon">⌂</div>
+            <h3>Operator Apprenticeship</h3>
+            <p>Capability ladder toward AI-commerce and technical operator work with real artifacts.</p>
+            <div class="pad-meta"><span class="chip">Curriculum</span><span class="chip">Modules</span></div>
+            <span class="pad-link">learn.lazermermicorn.com →</span>
+          </a>
+
+          <a class="lilypad wide reveal" href="https://github.com/cyber-lazer-mermicorn/cherry-rental-engine" target="_blank" rel="noopener" style="--pad-glow: rgba(163,230,53,0.12)">
+            <div class="pad-icon">▤</div>
+            <h3>Rental Engine</h3>
+            <p>Host-scoped booking, iCal sync, Stripe Checkout, and calendar intelligence — Next.js + Supabase. Production deploy hardening in progress.</p>
+            <div class="pad-meta"><span class="chip">Next.js</span><span class="chip">Stripe</span><span class="chip">Supabase</span></div>
+            <span class="pad-link">View repository →</span>
+          </a>
         </div>
+      </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="section-header">
-            <h2>Let's Build Together</h2>
-            <p>Open to remote AI engineering roles and freelance projects</p>
+    <!-- Second inspirational band -->
+    <div class="photo-band" data-focus>
+      <img
+        src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1800&q=80"
+        alt=""
+        loading="lazy"
+        width="1800"
+        height="1000"
+      />
+      <div class="photo-band-copy reveal">
+        <h2>Design that wants the night.</h2>
+        <p>Ravewear and creative systems sit beside the commercial engines — one brand language, many pads.</p>
+      </div>
+    </div>
+
+    <!-- Proof -->
+    <section id="proof">
+      <div class="wrap">
+        <p class="section-kicker reveal">Evidence</p>
+        <h2 class="section-title reveal">How proof is treated</h2>
+        <p class="section-sub reveal">STATUS docs stay honest. Live means live. WIP stays labeled.</p>
+        <div class="proof-row">
+          <div class="proof-card reveal">
+            <strong>Live domains</strong>
+            <p>Product subdomains on lazermermicorn.com are the public face — not screenshots of localhost.</p>
+          </div>
+          <div class="proof-card reveal reveal-delay-1">
+            <strong>GitHub as ledger</strong>
+            <p>Repos and verticals under cyber-lazer-mermicorn show architecture, rights, and status in the open.</p>
+          </div>
+          <div class="proof-card reveal reveal-delay-2">
+            <strong>Operator discipline</strong>
+            <p>Discover → compare → verify → design → package → sell → learn. First-pass quality over placeholder theater.</p>
+          </div>
         </div>
-        <div class="contact-links">
-            <a href="mailto:cyber.lazer.mermicorn@gmail.com" class="contact-link">
-                <span>✉️</span>
-                <span>cyber.lazer.mermicorn@gmail.com</span>
-            </a>
-            <a href="https://github.com/cyber-lazer-mermicorn" class="contact-link" target="_blank">
-                <span>💻</span>
-                <span>GitHub</span>
-            </a>
-            <a href="https://linkedin.com" class="contact-link" target="_blank">
-                <span>💼</span>
-                <span>LinkedIn</span>
-            </a>
-        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>© 2026 Cherry Shanaley (Chan) / Cyber Lazer Mermicorn. All rights reserved.</p>
-        <p style="margin-top: 8px;">Built with <a href="https://vercel.com">Vercel</a> • Powered by AI</p>
-    </footer>
+    <!-- Hire -->
+    <section id="hire">
+      <div class="wrap">
+        <div class="hire-panel">
+          <p class="section-kicker reveal">Open to work</p>
+          <h2 class="section-title reveal">Hire Cherry</h2>
+          <p class="section-sub reveal" style="margin-bottom: 0;">AI solutions engineering, developer advocacy, or project-based builds — remote-friendly.</p>
+          <div class="hire-grid">
+            <div class="hire-card reveal">
+              <h3>AI Solutions Engineer</h3>
+              <p style="color:var(--muted);font-size:0.85rem;">Full-time / contract</p>
+              <div class="rate">Market + impact</div>
+              <ul>
+                <li>Multi-provider AI systems</li>
+                <li>Production deploys</li>
+                <li>Commerce & booking stacks</li>
+              </ul>
+              <a class="btn btn-solid" href="mailto:cyber.lazer.mermicorn@gmail.com?subject=AI%20Solutions%20Engineer">Email</a>
+            </div>
+            <div class="hire-card reveal reveal-delay-1">
+              <h3>Developer Advocate</h3>
+              <p style="color:var(--muted);font-size:0.85rem;">Remote</p>
+              <div class="rate">Story + systems</div>
+              <ul>
+                <li>Technical narrative</li>
+                <li>Live demos</li>
+                <li>Community-facing proof</li>
+              </ul>
+              <a class="btn btn-ghost" href="mailto:cyber.lazer.mermicorn@gmail.com?subject=Developer%20Advocate">Email</a>
+            </div>
+            <div class="hire-card reveal reveal-delay-2">
+              <h3>Project builds</h3>
+              <p style="color:var(--muted);font-size:0.85rem;">Scoped engagements</p>
+              <div class="rate">Scoped rates</div>
+              <ul>
+                <li>Vertical MVPs</li>
+                <li>Stripe + Supabase</li>
+                <li>Design systems</li>
+              </ul>
+              <a class="btn btn-ghost" href="mailto:cyber.lazer.mermicorn@gmail.com?subject=Project%20inquiry">Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="text-align:center;">
+      <div class="wrap">
+        <p class="section-kicker reveal">Contact</p>
+        <h2 class="section-title reveal">Let's build the next pad</h2>
+        <p class="section-sub reveal" style="margin-left:auto;margin-right:auto;">Email, GitHub, or a product domain — start where the work already lives.</p>
+        <div class="contact-row reveal">
+          <a class="contact-pill" href="mailto:cyber.lazer.mermicorn@gmail.com">✉ cyber.lazer.mermicorn@gmail.com</a>
+          <a class="contact-pill" href="https://github.com/cyber-lazer-mermicorn" target="_blank" rel="noopener">⌘ GitHub</a>
+          <a class="contact-pill" href="https://deals.lazermermicorn.com" target="_blank" rel="noopener">✈ Deals</a>
+          <a class="contact-pill" href="https://ravewear.lazermermicorn.com" target="_blank" rel="noopener">✦ Ravewear</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Cherry Shanaley (Chan) / Cyber Lazer Mermicorn. All rights reserved.</p>
+    <p style="margin-top:0.4rem;">Portfolio · <a href="https://lazermermicorn.com">lazermermicorn.com</a> · Built for clarity, not theater.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const nav = document.getElementById("nav");
+      const toggle = document.getElementById("navToggle");
+      const links = document.getElementById("navLinks");
+
+      toggle?.addEventListener("click", () => nav.classList.toggle("open"));
+      links?.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => nav.classList.remove("open"))
+      );
+
+      window.addEventListener(
+        "scroll",
+        () => nav.classList.toggle("scrolled", window.scrollY > 24),
+        { passive: true }
+      );
+
+      // Scroll-focus: scale inspirational photos when in view
+      const focusEls = document.querySelectorAll("[data-focus]");
+      if ("IntersectionObserver" in window) {
+        const focusObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              e.target.classList.toggle("is-focused", e.isIntersecting && e.intersectionRatio > 0.35);
+            });
+          },
+          { threshold: [0.2, 0.4, 0.6] }
+        );
+        focusEls.forEach((el) => focusObs.observe(el));
+
+        const revealObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                revealObs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+        );
+        document.querySelectorAll(".reveal").forEach((el) => revealObs.observe(el));
+      } else {
+        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+        focusEls.forEach((el) => el.classList.add("is-focused"));
+      }
+
+      // Active nav section
+      const sections = ["constellation", "proof", "hire", "contact"]
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+      const navAnchors = [...document.querySelectorAll(".nav-links a[href^='#']")];
+      const sectionObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const id = e.target.id;
+            navAnchors.forEach((a) => {
+              a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+            });
+          });
+        },
+        { rootMargin: "-40% 0px -45% 0px", threshold: 0 }
+      );
+      sections.forEach((s) => sectionObs.observe(s));
+    })();
+  </script>
 </body>
 </html>

@@ -5,14 +5,14 @@ display_name: Cherry Portfolio
 owner: cherry
 lane: identity-governance
 visibility: public
-status: foundation
+status: live
 
 purpose:
-  problem: Public-facing portfolio site showcasing Cherry's work across the Mermicorn Grove constellation.
+  problem: Public-facing portfolio and constellation map for Cyber Lazer Mermicorn.
   audience:
-    - Cherry
+    - recruiters
     - collaborators
-    - future employers
+    - customers discovering verticals
 
 shared_services:
   boot: mermicorn-mega-boot
@@ -26,8 +26,8 @@ privacy:
     - contact information
   private:
     - internal analytics
-    - visitor tracking
 
 first_proof:
-  artifact: live-portfolio-with-proof-artifacts
-  status: planned
+  artifact: lazermermicorn.com-cinematic-lilypad-constellation
+  status: shipped
+  date: "2026-08-14"
