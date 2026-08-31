@@ -2,6 +2,7 @@
   const nav = document.getElementById("nav");
   const toggle = document.getElementById("navToggle");
   const links = document.getElementById("navLinks");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   toggle?.addEventListener("click", () => nav.classList.toggle("open"));
   links?.querySelectorAll("a").forEach((a) =>
@@ -10,7 +11,7 @@
 
   window.addEventListener(
     "scroll",
-    () => nav.classList.toggle("scrolled", window.scrollY > 24),
+    () => nav.classList.toggle("scrolled", window.scrollY > 20),
     { passive: true }
   );
 
@@ -63,4 +64,28 @@
     { rootMargin: "-40% 0px -45% 0px", threshold: 0 }
   );
   sections.forEach((s) => sectionObs.observe(s));
+
+  /* Soft hero parallax — desktop only, reduced-motion safe */
+  const heroImg = document.querySelector(".hero-photo img");
+  if (heroImg && !reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+    let raf = 0;
+    let tx = 0;
+    let ty = 0;
+    window.addEventListener(
+      "mousemove",
+      (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 12;
+        const y = (e.clientY / window.innerHeight - 0.5) * 8;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          tx += (x - tx) * 0.08;
+          ty += (y - ty) * 0.08;
+          const focused = document.querySelector(".hero.is-focused");
+          const base = focused ? 1.02 : 1.1;
+          heroImg.style.transform = `scale(${base}) translate(${tx}px, ${ty}px)`;
+        });
+      },
+      { passive: true }
+    );
+  }
 })();
